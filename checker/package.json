@@ -1,0 +1,10 @@
+{
+  "name": "nes-game-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "jsnes": "^1.2.1"
+  }
+}

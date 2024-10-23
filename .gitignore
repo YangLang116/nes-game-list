@@ -1,2 +1,3 @@
-.DS_Store
 .idea
+checker/package-lock.json
+checker/node_modules
