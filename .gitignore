@@ -1,3 +1,3 @@
 .idea
-checker/package-lock.json
-checker/node_modules
+tools/checker/package-lock.json
+tools/checker/node_modules

@@ -17,6 +17,10 @@ function traverseDirectory(directory, callback) {
     });
 }
 
+function isJSONFile(filePath) {
+    return filePath.indexOf('.json') !== -1;
+}
+
 function parseGameList(filePath) {
     const data = fs.readFileSync(filePath, 'utf8');
     return JSON.parse(data);
@@ -40,8 +44,10 @@ function validGame(nesPath) {
 }
 
 function dumpGame(filePath, gameList) {
-    fs.writeFileSync(filePath, JSON.stringify(gameList, null, 4));
-
+    //json file
+    const formatJson = JSON.stringify(gameList, null, 4);
+    fs.writeFileSync(filePath, formatJson);
+    //base64 encode file
     const encodePath = filePath.substring(0, filePath.lastIndexOf('.')) + '.txt';
     const data = Buffer.from(JSON.stringify(gameList)).toString('base64');
     fs.writeFileSync(encodePath, data);
@@ -50,6 +56,7 @@ function dumpGame(filePath, gameList) {
 
 module.exports = {
     traverseDirectory,
+    isJSONFile,
     parseGameList,
     validGame,
     dumpGame,
